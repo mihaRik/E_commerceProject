@@ -1,0 +1,13 @@
+﻿@model ICollection<E_commerceProject_Electro.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@Html.Partial("_AdvertisingBanner")
+@Html.Partial("_NewProducts",Model)
+@Html.Partial("_HotDeal")
+@Html.Partial("_TopSelling")
