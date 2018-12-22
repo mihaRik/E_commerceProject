@@ -1,4 +1,6 @@
-﻿@model ICollection<E_commerceProject_Electro.Models.Product>
+﻿@using E_commerceProject_Electro.Models
+
+@model ICollection<ProductToImages>
 
 @{
     ViewBag.Title = "Index";
@@ -8,6 +10,13 @@
 <h2>Index</h2>
 
 @Html.Partial("_AdvertisingBanner")
-@Html.Partial("_NewProducts",Model)
+
+@{
+    List<ProductToImages> newProducts = Model
+                .Where(x => (DateTime.Now.Date - x.ProductAddDate).Days < 5)
+                .ToList();
+}
+
+@Html.Partial("_NewProducts", newProducts)
 @Html.Partial("_HotDeal")
 @Html.Partial("_TopSelling")

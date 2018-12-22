@@ -12,20 +12,20 @@
 <form method="post" action="~/Admin/CreateProduct" enctype="multipart/form-data">
     <div class="form-group">
         <label for="productName">Product name</label>
-        <input type="text" name="productName" value="" placeholder="Product name" />
+        <input type="text" name="productName" value="" placeholder="Product name" required/>
     </div>
     <div class="form-group">
         <label for="productPrice">Product price</label>
-        <input type="number" name="productPrice" value="" placeholder="Product price" />
+        <input type="number" name="productPrice" value="" placeholder="Product price" required/>
     </div>
     <div class="form-group">
         <label for="productDiscount">Product discount</label>
-        <input type="number" min="0" max="100" name="productDiscount" value="" placeholder="Product discount" />
+        <input type="number" min="0" max="100" name="productDiscount" value="" placeholder="Product discount" required/>
 
     </div>
     <div class="form-group">
         <label for="productImage">Product image</label>
-        <input type="file" name="productImage" value="" />
+        <input type="file" name="productImage" value="" multiple required/>
     </div>
     <div class="form-group">
         <label for="productCategoryId">Product category</label>

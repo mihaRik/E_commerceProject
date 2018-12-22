@@ -15,7 +15,7 @@ namespace E_commerceProject_Electro.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            return View();
+            return View(_db.Products.ToList());
         }
 
         [HttpGet]
@@ -27,28 +27,34 @@ namespace E_commerceProject_Electro.Controllers
         [HttpPost]
         [Route("api/image")]
         public ActionResult CreateProduct(string productName, string productPrice,
-            string productDiscount, HttpPostedFileBase productImage, string productCategoryId)
+            string productDiscount, HttpPostedFileBase[] productImage, string productCategoryId)
         {
-            string filePath = null;
-            if (productImage != null && productImage.ContentLength > 0)
-            {
-                string serverPath=Server.MapPath("~/uploads");
-                string fileFullPath = Path.Combine(serverPath, productImage.FileName);
-                productImage.SaveAs(fileFullPath);
-                filePath = Path.Combine("../uploads", productImage.FileName);
-            }
-
             Product product = new Product()
             {
                 ProductName = productName,
                 ProductPrice = Convert.ToSingle(productPrice),
                 CategoryId = Convert.ToInt32(productCategoryId),
                 ProductDiscountValueInPercents = Convert.ToInt32(productDiscount),
-                ImagePath = filePath
             };
             _db.Products.Add(product);
             _db.SaveChanges();
 
+            foreach (HttpPostedFileBase image in productImage)
+            {
+                if (image != null && image.ContentLength > 0)
+                {
+                    string serverPath = Server.MapPath("~/uploads");
+                    image.SaveAs(Path.Combine(serverPath, image.FileName));
+
+                    ProductImage productImg = new ProductImage()
+                    {
+                        ProductId = product.Id,
+                        ImagePath = Path.Combine("../uploads", image.FileName)
+                    };
+                    _db.ProductImages.Add(productImg);
+                    _db.SaveChanges();
+                }
+            }
             return RedirectToAction("CreateProduct");
         }
 

@@ -137,6 +137,7 @@
     <Content Include="fonts\slick.eot" />
     <Content Include="fonts\slick.ttf" />
     <Content Include="fonts\slick.woff" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -157,10 +158,28 @@
     <Compile Include="Migrations\201812211641528_EditProductTableAddImageColumn.Designer.cs">
       <DependentUpon>201812211641528_EditProductTableAddImageColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812221422067_updateProductTableImageICollection.cs" />
+    <Compile Include="Migrations\201812221422067_updateProductTableImageICollection.Designer.cs">
+      <DependentUpon>201812221422067_updateProductTableImageICollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812221425286_test.cs" />
+    <Compile Include="Migrations\201812221425286_test.Designer.cs">
+      <DependentUpon>201812221425286_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812221433130_restoreStorePropertyOfProduct.cs" />
+    <Compile Include="Migrations\201812221433130_restoreStorePropertyOfProduct.Designer.cs">
+      <DependentUpon>201812221433130_restoreStorePropertyOfProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812221654063_addImageTable.cs" />
+    <Compile Include="Migrations\201812221654063_addImageTable.Designer.cs">
+      <DependentUpon>201812221654063_addImageTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\E_commerceProjectDbContext.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductImage.cs" />
+    <Compile Include="Models\ProductToImages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +198,9 @@
     <Content Include="Views\Shared\_TopSelling.cshtml" />
     <Content Include="Views\Admin\CreateCategory.cshtml" />
     <Content Include="Views\Admin\CreateProduct.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Shared\_ErrorPage.cshtml" />
+    <Content Include="Views\Home\Store.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -199,6 +221,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812211641528_EditProductTableAddImageColumn.resx">
       <DependentUpon>201812211641528_EditProductTableAddImageColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812221422067_updateProductTableImageICollection.resx">
+      <DependentUpon>201812221422067_updateProductTableImageICollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812221425286_test.resx">
+      <DependentUpon>201812221425286_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812221433130_restoreStorePropertyOfProduct.resx">
+      <DependentUpon>201812221433130_restoreStorePropertyOfProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812221654063_addImageTable.resx">
+      <DependentUpon>201812221654063_addImageTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
