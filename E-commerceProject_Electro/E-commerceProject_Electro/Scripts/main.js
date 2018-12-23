@@ -169,11 +169,12 @@
 
 let hotDealList = $(".hot-deal-countdown");
 
+let dealTime = new Date(2018, 12, 23, 10, 34, 56);
 let hotDealTimer = setInterval(function () {
-    let t = new Date();
-    console.log(t);
+    dealTime.setSeconds(dealTime.getSeconds() - 1);
+    //console.log(dealTime);
+    hotDealList.children("li:first").children("div3").children("h3").text(dealTime.getDay());
+    hotDealList.children("li:nth-child(2)").children("div").children("h3").text(dealTime.getHours());
+    hotDealList.children("li:nth-child(3)").children("div").children("h3").text(dealTime.getMinutes());
+    hotDealList.children("li:nth-child(4)").children("div").children("h3").text(dealTime.getSeconds());
 }, 1000);
-
-hotDealTimer();
-
-console.log("fefef");

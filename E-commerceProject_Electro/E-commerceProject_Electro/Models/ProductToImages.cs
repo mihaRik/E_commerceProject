@@ -13,7 +13,7 @@ namespace E_commerceProject_Electro.Models
         public float ProductPrice { get; set; }
         public int ProductDiscountValueInPercents { get; set; }
         public DateTime ProductAddDate { get; set; }
+        public int CategoryId { get; set; }
         public IEnumerable<ProductImage> ProductImages { get; set; }
-        public Category CategoryName { get; set; }
     }
 }

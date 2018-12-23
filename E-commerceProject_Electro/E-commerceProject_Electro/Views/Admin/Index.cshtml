@@ -1,0 +1,45 @@
+﻿@using E_commerceProject_Electro.Models
+
+@model ICollection<ProductToImages>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Admin products</h2>
+
+<div class="container">
+    <div class="row  text-center">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Discount</th>
+                        <th scope="col">Add date</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (ProductToImages item in Model)
+                    {
+                    <tr>
+                        <th scope="col">@item.Id</th>
+                        <td>@item.ProductName</td>
+                        <td>@item.ProductPrice</td>
+                        <td>@item.ProductDiscountValueInPercents</td>
+                        <td>@item.ProductAddDate</td>
+                        <td>@Html.ActionLink("Update", "Update", new { id = @item.Id })</td>
+                        <td>@Html.ActionLink("Delete", "Delete", new { id = @item.Id })</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

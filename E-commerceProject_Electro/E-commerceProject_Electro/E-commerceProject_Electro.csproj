@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\ajax-loader.gif" />
+    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\nouislider.min.css" />
@@ -194,6 +195,7 @@
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Shared\_ErrorPage.cshtml" />
     <Content Include="Views\Home\Store.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

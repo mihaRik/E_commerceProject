@@ -15,7 +15,19 @@ namespace E_commerceProject_Electro.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            return View(_db.Products.ToList());
+            ICollection<ProductToImages> products = _db.Products
+                .GroupJoin(_db.ProductImages, x => x.Id, y => y.ProductId, (x, y) => new ProductToImages()
+                {
+                    Id = x.Id,
+                    ProductName = x.ProductName,
+                    ProductPrice = x.ProductPrice,
+                    ProductDiscountValueInPercents = x.ProductDiscountValueInPercents,
+                    ProductAddDate = x.ProductAddDate,
+                    ProductImages = y,
+                })
+                .ToList();
+
+            return View(products);
         }
 
         [HttpGet]
@@ -75,6 +87,16 @@ namespace E_commerceProject_Electro.Controllers
             _db.SaveChanges();
 
             return RedirectToAction("CreateCategory");
+        }
+
+        public ActionResult Update(int id)
+        {
+            return View();
+        }
+
+        public ActionResult Delete(int id)
+        {
+            return View();
         }
     }
 }

@@ -10,20 +10,21 @@ namespace E_commerceProject_Electro.Controllers
     public class HomeController : Controller
     {
         E_commerceProjectDbContext _db = new E_commerceProjectDbContext();
+
         // GET: Home
         public ActionResult Index()
         {
             ICollection<ProductToImages> products = _db.Products
-                .GroupJoin(_db.ProductImages, x => x.Id, y => y.ProductId, (x, y) => new ProductToImages()
-                {
-                    Id = x.Id,
-                    ProductName = x.ProductName,
-                    ProductPrice = x.ProductPrice,
-                    ProductDiscountValueInPercents = x.ProductDiscountValueInPercents,
-                    ProductAddDate = x.ProductAddDate,
-                    ProductImages = y,
-                })
-                .ToList();
+            .GroupJoin(_db.ProductImages, x => x.Id, y => y.ProductId, (x, y) => new ProductToImages()
+            {
+                Id = x.Id,
+                ProductName = x.ProductName,
+                ProductPrice = x.ProductPrice,
+                ProductDiscountValueInPercents = x.ProductDiscountValueInPercents,
+                ProductAddDate = x.ProductAddDate,
+                ProductImages = y,
+            })
+            .ToList();
 
             return View(products);
         }
@@ -62,6 +63,7 @@ namespace E_commerceProject_Electro.Controllers
                     ProductPrice = x.ProductPrice,
                     ProductDiscountValueInPercents = x.ProductDiscountValueInPercents,
                     ProductAddDate = x.ProductAddDate,
+                    CategoryId=x.CategoryId,
                     ProductImages = y,
                 })
                 .ToList();
